@@ -13,14 +13,65 @@ import java.util.Scanner;
 public class Ejercicio_6 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Ingresá el primer numero");
-        int numA = entrada.nextInt();
-        System.out.println("Ingresá el segundo numero");
-        int numB = entrada.nextInt();
-        if(numA < 0 || numB < 0){
-            System.out.println("Solamente se acepetan numeros positivos");
-        }
-        
+        int numA, numB, opcion;
+        String salida;
+        do{
+            do{
+                System.out.println("Ingresá un numero positivo");
+                numA = entrada.nextInt();
+                System.out.println("Ingresá otro numero positivo");
+                numB = entrada.nextInt();
+            }while(numA < 0 && numB < 0);
+            
+            do{
+                System.out.println("Ingresá una opcion");
+                System.out.println("1)- Sumar");
+                System.out.println("2)- Restar");
+                System.out.println("3)- Multiplicar");
+                System.out.println("4)- Dividir");
+                System.out.println("5)- Salir");
+                opcion = entrada.nextInt();
+                switch(opcion){
+                case 1:{
+                    System.out.println("");
+                    System.out.println("La suma de " + numA + " + " + numB + " es: " + (numA + numB));
+                    System.out.println("");
+                    break;
+                }
+                case 2: {
+                    System.out.println("");
+                    System.out.println("La resta de " + numA + " - " + numB + " es: " + (numA - numB));
+                    System.out.println("");
+                    break;
+                }
+                case 3: {
+                    System.out.println("");
+                    System.out.println("La multiplicación de " + numA + " * " + numB + " es: " + (numA * numB));
+                    System.out.println("");
+                }
+                case 4: {
+                    System.out.println("");
+                    System.out.println("La división de " + numA + " / " + numB + " es: " + (numA / numB));
+                    System.out.println("");
+                }
+                case 5: {
+                    break;
+                }
+                default: {
+                    System.out.println("");
+                    System.out.println("Tenés que ingresar un número del 1 - 5");
+                    System.out.println("");
+                }
+            }
+            }while(opcion != 5);
+            
+            
+            System.out.println("Está seguro que desea salir del programa (S/N)?");
+            salida = entrada.next();
+            if(salida.equals("s") || salida.equals("S")){
+                break;
+            }
+        }while(!salida.equals("N") || !salida.equals("n"));
+        System.out.println("Gracias por utilizar la calculadora.");
     }
-    
 }
