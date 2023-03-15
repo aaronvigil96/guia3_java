@@ -23,7 +23,15 @@ public class Ejercicio_8 {
             System.out.println("¿Que desea hacer?");
             System.out.println("1)- Mostrar cubo");
             System.out.println("2)- Salir");
-            opcion = entrada.nextInt();
+            
+            try{
+                opcion = entrada.nextInt();
+            }catch(Exception e){
+                System.out.println("Pone un numero, sida");
+                opcion = 0;
+                break;
+            }
+            
             switch(opcion){
                 case 1: 
                     System.out.println("Ingresá un numero");
@@ -31,7 +39,13 @@ public class Ejercicio_8 {
                     for (int i = 0; i < numero; i++) {
                         System.out.println("");
                         for (int j = 0; j < numero; j++) {
-                            
+                            if(i == 0 || i == numero - 1){
+                                System.out.print(" * ");
+                            }else if(j != 0 && j != numero - 1){
+                                System.out.print("   ");
+                            }else {
+                                System.out.print(" * ");
+                            }
                         }
                     }
                     System.out.println("");
